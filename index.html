@@ -197,7 +197,7 @@
 
                     <div class="portfolio-box">
                         <div class="img-box">
-                            <img src="./assets/img/portfolio.jpg" alt="monitor aple and setup">
+                            <img src="./assets/img/portifolio.jpg" alt="monitor aple and setup">
                         </div>
                         
 
@@ -225,35 +225,49 @@
                 </div>
 
                 <!-- page 6 (contact me) -->
-                <div class="page-back">
-                    <h1 class="title">Contact Me</h1>
+               <div class="page-back">
+                <h1 class="title">Contact Me</h1>
 
-                    <div class="contact-box">
-                        <form action="#">
-                            <input type="text" class="field" placeholder="Full Name" required>
-                            <input type="text" class="field" placeholder="Email Address" required>
-                            <textarea name="" id="" cols="30" rows="10" class="field" placeholder="Your Message"></textarea>
-                            <input type="submit" value="Send Message" class="btn">
-                        </form>
-                    </div>
-
-                    <span class="number-page">6</span>
-
-                     <!-- prev button -->
-                     <span class="nextprev-btn back" data-page="turn-3">
-                        <i class="fa-solid fa-chevron-left"></i>
-                     </span>
-
-                     <a href="#" class="back-profile">
-                        <p>Profile</p>
-                        <i class="fa-solid fa-user"></i>
-                     </a>
+                <div class="contact-box">
+                    <form id="contact-form">
+                    <input type="text" id="name" class="field" placeholder="Full Name" required>
+                    <input type="text" id="email" class="field" placeholder="Email Address" required>
+                    <textarea id="message" cols="30" rows="10" class="field" placeholder="Your Message" required></textarea>
+                    <input type="submit" value="Send Message" class="btn">
+                    </form>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    
+                <span class="number-page">6</span>
+
+                <!-- prev button -->
+                <span class="nextprev-btn back" data-page="turn-3">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </span>
+
+                <a href="#" class="back-profile">
+                    <p>Profile</p>
+                    <i class="fa-solid fa-user"></i>
+                </a>
+                </div>
+
+                <script>
+                document.getElementById('contact-form').addEventListener('submit', function (e) {
+                    e.preventDefault(); // impede o envio tradicional do formulário
+
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const message = document.getElementById('message').value;
+
+                    // monta o texto da mensagem
+                    const text = `Olá! Meu nome é ${name} (%20Email:%20${email})%0A${message}`;
+
+                    // redireciona para o WhatsApp
+                    const phone = '5541995157895';
+                    const url = `https://wa.me/${phone}?text=${text}`;
+                    window.open(url, '_blank');
+                });
+                </script>
+
     <script src="script.js"></script>
 </body>
 </html>

@@ -31,11 +31,12 @@ body{
   color: var(--text-color);
   overflow: hidden;
 }
-
 .wrapper{
   position: relative;
-  width: 66rem;
-  height: 45rem;
+  width: 63%; /* Ocupa 90% da largura da tela */
+  max-width: 66rem; /* Mas não passa de 66rem */
+  height: auto; /* A altura será automática */
+  aspect-ratio: 66 / 45; /* Mantém a proporção do livro */
   padding: 2rem;
   animation: show-animate 2s forwards;
 }
@@ -107,19 +108,26 @@ body{
 }
 
 .profile-page img{
-  max-width: 180px;
+  max-width: 35%;
   border-radius: 50%;
   border: .25rem solid var(--main-color);
   margin-bottom: .8rem;
 }
 
 .profile-page h1{
-  font-size: 2.5rem;
   line-height: 1;
 }
 
-.profile-page h3{
+h1{
   font-size: 1.5rem;
+}
+
+h3{
+  font-size: 0.8rem;
+}
+
+.profile-page h3{
+  font-size: 0.8rem;
   color: var(--main-color);
 }
 
@@ -131,8 +139,8 @@ body{
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
   background: transparent;
   border: var(--border);
   border-radius: 50%;
@@ -149,6 +157,12 @@ body{
 
 .profile-page p{
   text-align: justify;
+  font-size: 0.8rem;
+}
+
+p{
+  text-align: justify;
+  font-size: 0.8rem;
 }
 
 .profile-page .btn-box{
@@ -159,12 +173,12 @@ body{
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 9rem;
-  height: 2.8rem;
+  width: 6rem;
+  height: 2.5rem;
   background: var(--main-color);
   border: var(--border);
   border-radius: .3rem;
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: var(--white-color);
   font-weight: 500;
   margin: 0 1rem;
@@ -226,8 +240,8 @@ body{
 
 .workeduc-box .workeduc-content{
   position: relative;
-  padding-left: 1.6rem;
-  margin-bottom: 1.2rem;
+  padding-left: 1.4rem;
+  margin-bottom: 1rem;
 }
 
 .workeduc-box .workeduc-content::before{
@@ -263,7 +277,7 @@ body{
   height: 2rem;
   width: 2rem;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: var(--second-text-color);
   display: inline-flex;
   justify-content: center;
@@ -599,4 +613,69 @@ body{
   opacity: 1;
   transform: translatex(-50%) scale(1);
   top: -1.8rem;
+}
+/* --- INÍCIO DAS MEDIA QUERIES PARA RESPONSIVIDADE --- */
+
+/* Para telas menores que 1200px (Tablets em modo paisagem e ecrãs menores) */
+@media (max-width: 1200px) {
+  .wrapper {
+    padding: 1.5rem; /* Diminui o espaçamento interno do livro */
+  }
+
+  /* Diminui a fonte de alguns elementos para caberem melhor */
+  .profile-page h1 {
+    font-size: 2.2rem;
+  }
+  .profile-page h3 {
+    font-size: 1.3rem;
+  }
+  .profile-page p {
+      font-size: 0.9rem; /* Diminui o texto da descrição */
+  }
+  .workeduc-content p {
+      font-size: 0.9rem;
+  }
+  .btn {
+      width: 8rem;
+      height: 2.5rem;
+      font-size: 0.9rem;
+  }
+}
+
+/* Para telas menores que 768px (Tablets em modo retrato e telemóveis) */
+@media (max-width: 768px) {
+  /* No mobile, o layout do livro não funciona bem. */
+  /* Uma abordagem comum é mostrar uma página de cada vez. */
+  /* Mas para manter a simplicidade, vamos apenas ajustar os tamanhos. */
+
+  .wrapper {
+    width: 95%; /* Ocupa quase toda a tela */
+    padding: 1rem;
+  }
+
+  .profile-page h1 {
+    font-size: 1.8rem;
+  }
+
+  .profile-page h3 {
+    font-size: 1.1rem;
+  }
+  
+  .profile-page img {
+    max-width: 120px; /* Diminui a foto de perfil */
+  }
+
+  .profile-page .social-media a {
+      width: 2rem;
+      height: 2rem;
+      font-size: 1rem;
+  }
+
+  /* Empilha os botões um sobre o outro */
+  .profile-page .btn-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem; /* Espaço entre os botões */
+  }
 }
